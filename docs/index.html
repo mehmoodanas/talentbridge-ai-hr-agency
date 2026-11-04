@@ -21,7 +21,7 @@ h1{font-size:24px;margin:0}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .stat b{display:block;font-size:26px;line-height:1.1}
 .stat span{color:var(--mute);font-size:13px}
-.office{background:var(--floor);border:1px solid var(--line);border-radius:14px;padding:18px 12px 8px;position:relative;overflow:hidden}
+.office{background:var(--floor);border:1px solid var(--line);border-radius:14px;padding:18px 12px 84px;position:relative;overflow:hidden}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px}
 .desk{display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px}
 .desk svg{width:104px;height:116px;overflow:visible}
@@ -39,7 +39,7 @@ h1{font-size:24px;margin:0}
 @keyframes wob{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
 .bot{animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-3px)}}
-.walker{position:absolute;bottom:6px;left:0;width:64px;animation:walk 18s linear infinite;pointer-events:none}
+.walker{position:absolute;bottom:4px;left:0;width:64px;animation:walk 18s linear infinite;pointer-events:none}
 @keyframes walk{0%{transform:translateX(0)}50%{transform:translateX(calc(min(100vw,1088px) - 120px))}100%{transform:translateX(0)}}
 .walker .bot{animation:bob .6s ease-in-out infinite}
 .cols{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:16px}
