@@ -16,7 +16,7 @@ h1{font-size:24px;margin:0}
 .sub{color:var(--mute);font-size:14px}
 .pills{display:flex;gap:8px;flex-wrap:wrap}
 .live{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ok)}.dot.run{animation:pulse 1.2s infinite}
 .dot.off{background:var(--warn);animation:none}
 @keyframes pulse{50%{opacity:.25}}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
@@ -26,14 +26,14 @@ h1{font-size:24px;margin:0}
 .stage{position:relative;background:var(--floor);border:1px solid var(--line);border-radius:14px;overflow:hidden;touch-action:none}
 .stage canvas{display:block;width:100%;cursor:grab}
 .stage canvas:active{cursor:grabbing}
-.hint{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--mute);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px 9px}
+.hint{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--mute);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 12px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:10px;margin-top:12px}
 .acard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;border-left:6px solid var(--c)}
 .acard.sel{outline:2px solid var(--accent)}
 .acard .n{font-weight:600}
 .acard .r{color:var(--mute);font-size:12px}
 .acard .t{font-size:12.5px;margin-top:4px}
-.badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:999px}
 .ok,.approved{background:var(--okbg);color:var(--ok)}.partial,.held-for-approval{background:var(--warnbg);color:var(--warn)}.failed,.rejected{background:var(--badbg);color:var(--bad)}
 .cols{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
@@ -233,10 +233,10 @@ async function refresh(){try{render(API?await jget(API+'/api/state'):await jget(
 async function decide(h,d){await fetch(API+'/api/approve',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({to:h.to,subject:h.subject,decision:d})});refresh()}
 
 function onEvent(ev){
-  if(ev.type==='start'){live[ev.agent]=Object.assign(live[ev.agent]||{},{working:true});setStatus(ev.agent,'working');if(people[ev.agent]){people[ev.agent].work=1;showBubble(ev.agent,'Working…',0)}
+  if(ev.type==='start'){document.getElementById('bdot').classList.add('run');live[ev.agent]=Object.assign(live[ev.agent]||{},{working:true});setStatus(ev.agent,'working');if(people[ev.agent]){people[ev.agent].work=1;showBubble(ev.agent,'Working…',0)}
     document.getElementById('runmsg').textContent='Running: '+ev.agent}
   if(ev.type==='done'){live[ev.agent]={status:ev.status,task:ev.task,working:false};if(people[ev.agent]){people[ev.agent].work=0;setStatus(ev.agent,ev.status);showBubble(ev.agent,ev.task,6000)}}
-  if(ev.type==='cycle-done'){document.getElementById('runmsg').textContent='Cycle finished.';document.getElementById('runbtn').disabled=false;document.getElementById('addbtn').disabled=false;refresh()}
+  if(ev.type==='cycle-done'){document.getElementById('bdot').classList.remove('run');document.getElementById('runmsg').textContent='Cycle finished.';document.getElementById('runbtn').disabled=false;document.getElementById('addbtn').disabled=false;refresh()}
   if(ev.type==='approval')refresh()}
 async function post(u,b){const r=await fetch(API+u,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b||{})});return r}
 function wireControls(){
