@@ -5,43 +5,36 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TalentBridge AI Office</title>
 <style>
-:root{--bg:#f5f4ef;--card:#fff;--ink:#1d2433;--mute:#5d667a;--line:#dedbd0;--ok:#1f7a4d;--okbg:#dff3e7;--warn:#8a5a00;--warnbg:#fbeacb;--bad:#a32a2a;--badbg:#f8dcdc;--accent:#2d4fd6;--floor:#ebe8dc}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--card:#1b2029;--ink:#e8ebf2;--mute:#9aa3b5;--line:#2c3342;--ok:#6fd3a0;--okbg:#17372a;--warn:#f0c36a;--warnbg:#3a2d12;--bad:#f29a9a;--badbg:#401c1c;--accent:#8aa2ff;--floor:#171b24}}
-:root[data-theme="dark"]{--bg:#12151c;--card:#1b2029;--ink:#e8ebf2;--mute:#9aa3b5;--line:#2c3342;--ok:#6fd3a0;--okbg:#17372a;--warn:#f0c36a;--warnbg:#3a2d12;--bad:#f29a9a;--badbg:#401c1c;--accent:#8aa2ff;--floor:#171b24}
+:root{--bg:#f5f4ef;--card:#fff;--ink:#1d2433;--mute:#5d667a;--line:#dedbd0;--ok:#1f7a4d;--okbg:#dff3e7;--warn:#8a5a00;--warnbg:#fbeacb;--bad:#a32a2a;--badbg:#f8dcdc;--accent:#2d4fd6;--floor:#e9e6da;--btn:#1d2433;--btnink:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--card:#1b2029;--ink:#e8ebf2;--mute:#9aa3b5;--line:#2c3342;--ok:#6fd3a0;--okbg:#17372a;--warn:#f0c36a;--warnbg:#3a2d12;--bad:#f29a9a;--badbg:#401c1c;--accent:#8aa2ff;--floor:#171b24;--btn:#e8ebf2;--btnink:#12151c}}
+:root[data-theme="dark"]{--bg:#12151c;--card:#1b2029;--ink:#e8ebf2;--mute:#9aa3b5;--line:#2c3342;--ok:#6fd3a0;--okbg:#17372a;--warn:#f0c36a;--warnbg:#3a2d12;--bad:#f29a9a;--badbg:#401c1c;--accent:#8aa2ff;--floor:#171b24;--btn:#e8ebf2;--btnink:#12151c}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
 .wrap{max-width:1120px;margin:0 auto;padding:20px 16px 48px}
 header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
 h1{font-size:24px;margin:0}
 .sub{color:var(--mute);font-size:14px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
 .live{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+.dot.off{background:var(--warn);animation:none}
 @keyframes pulse{50%{opacity:.25}}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .stat b{display:block;font-size:26px;line-height:1.1}
 .stat span{color:var(--mute);font-size:13px}
-.office{background:var(--floor);border:1px solid var(--line);border-radius:14px;padding:18px 12px 84px;position:relative;overflow:hidden}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px}
-.desk{display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px}
-.desk svg{width:104px;height:116px;overflow:visible}
-.name{font-weight:600;font-size:14px}
-.role{color:var(--mute);font-size:12px}
-.bubble{margin-top:6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:12px;min-height:54px;width:100%;max-width:240px;color:var(--ink)}
-.badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;margin-bottom:3px}
-.ok{background:var(--okbg);color:var(--ok)}.partial{background:var(--warnbg);color:var(--warn)}.failed{background:var(--badbg);color:var(--bad)}
-.bot .arm{transform-origin:50% 0;animation:type .5s ease-in-out infinite alternate}
-.bot .arm.r{animation-delay:.25s}
-@keyframes type{from{transform:translateY(0)}to{transform:translateY(5px)}}
-.bot .eye{animation:blink 4s infinite;transform-origin:center;transform-box:fill-box}
-@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
-.bot .ant{animation:wob 1.4s ease-in-out infinite alternate;transform-origin:50% 100%;transform-box:fill-box}
-@keyframes wob{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
-.bot{animation:bob 2.2s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-3px)}}
-.walker{position:absolute;bottom:4px;left:0;width:64px;animation:walk 18s linear infinite;pointer-events:none}
-@keyframes walk{0%{transform:translateX(0)}50%{transform:translateX(calc(min(100vw,1088px) - 120px))}100%{transform:translateX(0)}}
-.walker .bot{animation:bob .6s ease-in-out infinite}
+.stage{position:relative;background:var(--floor);border:1px solid var(--line);border-radius:14px;overflow:hidden;touch-action:none}
+.stage canvas{display:block;width:100%;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.hint{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--mute);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px 9px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:10px;margin-top:12px}
+.acard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;border-left:6px solid var(--c)}
+.acard.sel{outline:2px solid var(--accent)}
+.acard .n{font-weight:600}
+.acard .r{color:var(--mute);font-size:12px}
+.acard .t{font-size:12.5px;margin-top:4px}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px}
+.ok,.approved{background:var(--okbg);color:var(--ok)}.partial,.held-for-approval{background:var(--warnbg);color:var(--warn)}.failed,.rejected{background:var(--badbg);color:var(--bad)}
 .cols{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 .card h2{font-size:16px;margin:0 0 8px}
@@ -49,65 +42,217 @@ table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--mute);font-weight:600}
 .scroll{max-height:380px;overflow:auto}
-ul{margin:0;padding-left:18px}li{margin:3px 0;font-size:13px}
+ul{margin:0;padding-left:18px}li{margin:4px 0;font-size:13px}
 .note{color:var(--mute);font-size:12.5px;margin-top:10px}
 a{color:var(--accent)}
-@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.walker{display:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--btn);color:var(--btnink);border-radius:8px;padding:6px 12px;cursor:pointer}
+button.alt{background:var(--card);color:var(--ink)}
+button:disabled{opacity:.5;cursor:default}
+textarea{width:100%;min-height:74px;font:inherit;font-size:13px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px;margin:6px 0}
+.ctl{display:none;margin-top:16px}
+.ctl.on{display:block}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+code{background:var(--bg);padding:1px 6px;border-radius:5px;font-size:12.5px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div><h1 id="title">TalentBridge AI</h1><div class="sub">HR agency run by 7 AI agents and an HR Lead. Sample data only.</div></div>
-  <div class="live"><span class="dot"></span><span id="updated">Loading…</span></div>
+  <div class="pills"><div class="live"><span class="dot" id="bdot"></span><span id="mode">Checking backend…</span></div><div class="live" id="updated">Loading…</div></div>
 </header>
 <div class="stats" id="stats"></div>
-<div class="office"><div class="grid" id="grid"></div>
-  <div class="walker" id="walker"></div>
+<div class="stage" id="stagebox"><canvas id="c"></canvas><div class="hint">Drag to rotate · scroll to zoom · click a person</div></div>
+<div class="cards" id="cards"></div>
+
+<div class="card ctl" id="ctl">
+  <h2>Run the agency (backend connected)</h2>
+  <div class="row"><button id="runbtn">Run a full cycle now</button><span class="note" id="runmsg" style="margin:0"></span></div>
+  <div style="margin-top:12px"><b style="font-size:13px">Add a resume</b>
+  <textarea id="resume">Maya Chen | maya.chen@example.com | 5 years experience in recruiting and sourcing. Skills: recruiting, sourcing, communication, negotiation. BA Psychology.</textarea>
+  <button id="addbtn" class="alt">Add resume and run agents</button></div>
 </div>
+
 <div class="cols">
   <div class="card"><h2>Live ledger</h2><div class="scroll"><table><thead><tr><th>Time (UTC)</th><th>Agent</th><th>Task</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table></div>
     <div class="note"><a id="sheet" target="_blank" rel="noopener">Open the Google Sheet ledger</a></div></div>
   <div style="display:grid;gap:14px;align-content:start">
     <div class="card"><h2>Interviews proposed</h2><ul id="iv"></ul></div>
-    <div class="card"><h2>Outreach held for approval</h2><ul id="held"></ul><div class="note">Nothing is sent to candidates without a human.</div></div>
+    <div class="card"><h2>Outreach held for approval</h2><ul id="held"></ul><div class="note" id="heldnote">Nothing is sent to candidates without a human.</div></div>
     <div class="card"><h2>Fairness checker findings</h2><ul id="find"></ul></div>
   </div>
 </div>
-<div class="note">This page re-reads <code>ledger.json</code> every 30 seconds. A scheduled GitHub Action runs the agents and commits fresh results, so the page updates by itself.</div>
+<div class="note" id="foot"></div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const COLORS={'cv-intake':'#3b6fd6','role-scout':'#1f9d8a','shortlist-interview':'#8a4fd6','posting-writer':'#d6803b','onboarding-planner':'#d64f7a','people-analytics':'#4f9d3b','fairness-checker':'#b8a000','hr-lead':'#1d2433'};
+const SKIN=['#f1c9a5','#c68642','#8d5524','#e0ac69','#ffdbac','#a9714b','#d9a066','#f1c9a5'];
+const HAIR=['#2b1d14','#111','#5a3a1e','#8b5a2b','#1c1c1c','#b5651d','#3b2a20','#222'];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function textOn(h){const n=parseInt(h.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;return (0.299*r+0.587*g+0.114*b)>150?'#111':'#fff'}
-function bot(c,init){const t=textOn(c);return `<svg viewBox="0 0 104 116" class="bot" aria-hidden="true">
-<line x1="52" y1="14" x2="52" y2="4" stroke="${c}" stroke-width="3" class="ant"/><circle cx="52" cy="4" r="4" fill="#e8504a" class="ant"/>
-<rect x="26" y="14" width="52" height="38" rx="12" fill="${c}"/>
-<ellipse cx="41" cy="32" rx="6" ry="7" fill="#fff" class="eye"/><ellipse cx="63" cy="32" rx="6" ry="7" fill="#fff" class="eye"/>
-<circle cx="42" cy="33" r="3" fill="#111"/><circle cx="64" cy="33" r="3" fill="#111"/>
-<rect x="30" y="56" width="44" height="34" rx="10" fill="${c}"/><text x="52" y="79" text-anchor="middle" font-size="16" font-weight="700" fill="${t}" font-family="system-ui">${init}</text>
-<rect x="14" y="60" width="14" height="8" rx="4" fill="${c}" class="arm"/><rect x="76" y="60" width="14" height="8" rx="4" fill="${c}" class="arm r"/>
-<rect x="34" y="92" width="14" height="12" rx="4" fill="${c}"/><rect x="56" y="92" width="14" height="12" rx="4" fill="${c}"/></svg>`}
-const init=n=>n.split(/[ &]+/).filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let API=null, state=null, selected=null, es=null;
+const live={};   // slug -> {status, task, working}
+
+/* ---------------- 3D scene ---------------- */
+const box=document.getElementById('stagebox'), canvas=document.getElementById('c');
+let renderer=null, scene, camera, people={}, walker=null, clock=0, cam={az:0,pol:1.02,r:11.5}, raycaster, bubbleTimers={};
+const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function mat(c,o={}){return new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.7,metalness:.05},o))}
+function labelTex(name,status,c){const k=document.createElement('canvas');k.width=320;k.height=72;const g=k.getContext('2d');
+  g.fillStyle='rgba(20,24,33,.86)';g.beginPath();g.roundRect?g.roundRect(0,6,320,60,30):g.rect(0,6,320,60);g.fill();
+  g.fillStyle=({ok:'#4ade80',partial:'#fbbf24',failed:'#f87171',working:'#60a5fa'})[status]||'#9ca3af';g.beginPath();g.arc(32,36,10,0,7);g.fill();
+  g.fillStyle='#fff';g.font='600 28px system-ui,sans-serif';g.textAlign='left';g.textBaseline='middle';g.fillText(name,52,37);return new THREE.CanvasTexture(k)}
+function bubbleTex(text){const k=document.createElement('canvas');k.width=640;k.height=200;const g=k.getContext('2d');
+  g.fillStyle='#fff';g.strokeStyle='#1d2433';g.lineWidth=4;g.beginPath();g.roundRect?g.roundRect(4,4,632,160,26):g.rect(4,4,632,160);g.fill();g.stroke();
+  g.fillStyle='#1d2433';g.font='500 27px system-ui,sans-serif';g.textBaseline='top';
+  const words=text.split(' ');let line='',y=22;const lines=[];for(const w of words){const t=line?line+' '+w:w;if(g.measureText(t).width>580){lines.push(line);line=w}else line=t}lines.push(line);
+  lines.slice(0,3).forEach((l,i)=>g.fillText(l,24,y+i*42));return new THREE.CanvasTexture(k)}
+
+function buildPerson(slug,i,seated){
+  const g=new THREE.Group(), shirt=COLORS[slug], skin=SKIN[i%SKIN.length], hair=HAIR[(i*3)%HAIR.length];
+  const skinM=mat(skin),shirtM=mat(shirt),pantsM=mat('#2b3345'),hairM=mat(hair);
+  const hip=seated?.55:.95;
+  const cyl=(rt,rb,h,m)=>new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,14),m);
+  const torso=cyl(.33,.29,.8,shirtM);torso.position.y=hip+.42;g.add(torso);
+  const head=new THREE.Group();head.position.y=hip+1.15;g.add(head);
+  const skull=new THREE.Mesh(new THREE.SphereGeometry(.26,20,16),skinM);head.add(skull);
+  const cap=new THREE.Mesh(new THREE.SphereGeometry(.28,20,12,0,Math.PI*2,0,Math.PI*.58),hairM);cap.rotation.x=-.25;head.add(cap);
+  if(i%2===1){const back=new THREE.Mesh(new THREE.CylinderGeometry(.27,.22,.5,14),hairM);back.position.set(0,-.12,-.1);head.add(back)}
+  for(const sx of[-1,1]){const e=new THREE.Mesh(new THREE.SphereGeometry(.035,8,8),mat('#111'));e.position.set(sx*.09,.02,.24);head.add(e)}
+  const mouth=new THREE.Mesh(new THREE.BoxGeometry(.09,.015,.01),mat('#7a3b3b'));mouth.position.set(0,-.09,.25);head.add(mouth);
+  const arms=[];
+  for(const sx of[-1,1]){const sh=new THREE.Group();sh.position.set(sx*.42,hip+.74,0);
+    const up=cyl(.075,.07,.38,shirtM);up.position.y=-.19;sh.add(up);
+    const el=new THREE.Group();el.position.y=-.38;sh.add(el);
+    const fo=cyl(.065,.06,.34,skinM);fo.position.y=-.17;el.add(fo);
+    const hand=new THREE.Mesh(new THREE.SphereGeometry(.07,10,8),skinM);hand.position.y=-.36;el.add(hand);
+    g.add(sh);arms.push({sh,el})}
+  const legs=[];
+  for(const sx of[-1,1]){const lg=new THREE.Group();lg.position.set(sx*.16,hip,0);
+    if(seated){const th=cyl(.11,.1,.5,pantsM);th.rotation.x=Math.PI/2;th.position.set(0,0,.25);lg.add(th);
+      const sn=cyl(.095,.08,.55,pantsM);sn.position.set(0,-.27,.5);lg.add(sn)}
+    else{const l=cyl(.11,.08,.95,pantsM);l.position.y=-.47;lg.add(l);const f=new THREE.Mesh(new THREE.BoxGeometry(.16,.08,.28),mat('#111'));f.position.set(0,-.93,.06);lg.add(f)}
+    g.add(lg);legs.push(lg)}
+  g.userData={slug,head,arms,legs,seated,hip};
+  return g}
+
+function buildDesk(color){const d=new THREE.Group();
+  const top=new THREE.Mesh(new THREE.BoxGeometry(2.1,.08,1.1),mat('#b98b5e'));top.position.y=.78;d.add(top);
+  for(const x of[-.95,.95])for(const z of[-.45,.45]){const l=new THREE.Mesh(new THREE.BoxGeometry(.07,.78,.07),mat('#6d5338'));l.position.set(x,.39,z);d.add(l)}
+  const base=new THREE.Mesh(new THREE.BoxGeometry(.7,.03,.45),mat('#8b93a1'));base.position.set(0,.84,.15);d.add(base);
+  const scr=new THREE.Group();scr.position.set(0,.86,.38);scr.rotation.x=-.18;
+  const lid=new THREE.Mesh(new THREE.BoxGeometry(.7,.45,.03),mat('#aab1bd'));lid.position.y=.23;scr.add(lid);
+  const logo=new THREE.Mesh(new THREE.CircleGeometry(.07,16),mat(color,{emissive:color,emissiveIntensity:.6}));logo.position.set(0,.23,.018);scr.add(logo);
+  const face=new THREE.Mesh(new THREE.PlaneGeometry(.64,.39),new THREE.MeshBasicMaterial({color:'#223'}));face.position.set(0,.23,-.017);face.rotation.y=Math.PI;scr.add(face);
+  d.add(scr);d.userData={face};return d}
+
+function addChair(g,x,z){const c=mat('#394155');const s=new THREE.Mesh(new THREE.BoxGeometry(.7,.08,.65),c);s.position.set(x,.5,z+.05);g.add(s);
+  const b=new THREE.Mesh(new THREE.BoxGeometry(.7,.75,.08),c);b.position.set(x,.9,z-.3);g.add(b);
+  const p=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,.5,8),mat('#222'));p.position.set(x,.25,z);g.add(p)}
+
+function initScene(team){
+  try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true})}catch(e){renderer=null;box.insertAdjacentHTML('beforeend','<div class="hint" style="top:10px;bottom:auto">3D needs WebGL; showing cards only.</div>');return}
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(42,2,.1,100);
+  scene.add(new THREE.HemisphereLight('#ffffff','#7a8294',.85));
+  const sun=new THREE.DirectionalLight('#ffffff',.9);sun.position.set(6,10,8);scene.add(sun);
+  const floor=new THREE.Mesh(new THREE.CircleGeometry(11,48),mat(cssVar('--floor')||'#e9e6da',{roughness:1}));floor.rotation.x=-Math.PI/2;scene.add(floor);
+  const rug=new THREE.Mesh(new THREE.CircleGeometry(9.2,48),mat('#2d4fd6',{transparent:true,opacity:.1}));rug.rotation.x=-Math.PI/2;rug.position.y=.01;scene.add(rug);
+  const desks=team.filter(t=>t.slug!=='hr-lead');
+  const pos=[[-4.6,-2.6],[-1.55,-2.6],[1.55,-2.6],[4.6,-2.6],[-3.1,.6],[0,.6],[3.1,.6]];
+  desks.forEach((t,i)=>{const [x,z]=pos[i];
+    const d=buildDesk(COLORS[t.slug]);d.position.set(x,0,z);scene.add(d);
+    addChair(scene,x,z-.95);
+    const p=buildPerson(t.slug,i,true);p.position.set(x,0,z-.95);scene.add(p);
+    const spr=new THREE.Sprite(new THREE.SpriteMaterial({map:labelTex(t.name,'ok'),transparent:true,depthTest:false}));spr.scale.set(1.75,.4,1);spr.position.set(x,2.55,z-.95);scene.add(spr);
+    const ring=new THREE.Mesh(new THREE.RingGeometry(.55,.68,32),new THREE.MeshBasicMaterial({color:'#4ade80',side:THREE.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.set(x,.02,z-.95);scene.add(ring);
+    const bub=new THREE.Sprite(new THREE.SpriteMaterial({transparent:true,depthTest:false}));bub.scale.set(3.4,1.06,1);bub.position.set(x,3.85,z-.95);bub.visible=false;scene.add(bub);
+    people[t.slug]={group:p,label:spr,ring,bub,desk:d,name:t.name,x,z:z-.95,phase:i*1.3,work:0,statusKey:'ok'}});
+  const lead=buildPerson('hr-lead',7,false);scene.add(lead);walker={g:lead,t:0};
+  const ls=new THREE.Sprite(new THREE.SpriteMaterial({map:labelTex('HR Lead','ok'),transparent:true,depthTest:false}));ls.scale.set(1.8,.42,1);ls.position.y=3.0;lead.add(ls);
+  for(const [x,z] of [[-7.5,-3.5],[7.5,-3.5],[-7.2,3],[7.2,3]]){const pot=new THREE.Mesh(new THREE.CylinderGeometry(.35,.28,.5,12),mat('#8a5a3a'));pot.position.set(x,.25,z);scene.add(pot);
+    const leaf=new THREE.Mesh(new THREE.SphereGeometry(.6,12,10),mat('#3f8f5a'));leaf.position.set(x,.95,z);scene.add(leaf)}
+  raycaster=new THREE.Raycaster();resize();bindControls();requestAnimationFrame(loop)}
+
+function resize(){if(!renderer)return;const w=box.clientWidth,h=Math.round(Math.min(Math.max(w*.52,320),560));renderer.setSize(w,h,false);canvas.style.height=h+'px';camera.aspect=w/h;camera.updateProjectionMatrix()}
+addEventListener('resize',resize);
+
+function bindControls(){let down=null,moved=0;
+  canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};moved=0;canvas.setPointerCapture(e.pointerId)});
+  canvas.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-down.x,dy=e.clientY-down.y;moved+=Math.abs(dx)+Math.abs(dy);
+    cam.az=Math.max(-1.2,Math.min(1.2,cam.az-dx*.006));cam.pol=Math.max(.55,Math.min(1.35,cam.pol-dy*.004));down={x:e.clientX,y:e.clientY}});
+  canvas.addEventListener('pointerup',e=>{if(moved<6)pick(e);down=null});
+  canvas.addEventListener('wheel',e=>{e.preventDefault();cam.r=Math.max(8,Math.min(22,cam.r+e.deltaY*.01))},{passive:false})}
+function pick(e){const r=canvas.getBoundingClientRect();const v=new THREE.Vector2(((e.clientX-r.left)/r.width)*2-1,-((e.clientY-r.top)/r.height)*2+1);
+  raycaster.setFromCamera(v,camera);const meshes=[];Object.values(people).forEach(p=>p.group.traverse(o=>{if(o.isMesh){o.userData.slug=p.group.userData.slug;meshes.push(o)}}));
+  const hit=raycaster.intersectObjects(meshes,false)[0];select(hit?hit.object.userData.slug:null)}
+function select(slug){selected=slug;document.querySelectorAll('.acard').forEach(c=>c.classList.toggle('sel',c.dataset.slug===slug));
+  Object.entries(people).forEach(([k,p])=>{if(k===slug){showBubble(k,(live[k]&&live[k].task)||'No run recorded yet',0)}else if(!p.work&&!bubbleTimers[k]){p.bub.visible=false}})}
+function showBubble(slug,text,ms){const p=people[slug];if(!p)return;p.bub.material.map=bubbleTex(text);p.bub.material.needsUpdate=true;p.bub.visible=true;clearTimeout(bubbleTimers[slug]);
+  if(ms){bubbleTimers[slug]=setTimeout(()=>{bubbleTimers[slug]=0;if(selected!==slug)p.bub.visible=false},ms)}}
+function setStatus(slug,status){const p=people[slug];if(!p)return;p.statusKey=status;
+  p.label.material.map=labelTex(p.name,status);p.label.material.needsUpdate=true;p.ring.material.color.set(({ok:'#4ade80',partial:'#fbbf24',failed:'#f87171',working:'#60a5fa'})[status]||'#9ca3af')}
+
+function loop(ts){requestAnimationFrame(loop);if(!renderer||document.hidden)return;const t=ts/1000;const k=reduced?0:1;
+  for(const p of Object.values(people)){const ud=p.group.userData,speed=(p.work?9:3.2),amp=p.work?.35:.12;
+    ud.arms.forEach((a,i)=>{a.sh.rotation.x=-1.0+k*Math.sin(t*speed+p.phase+i*1.7)*amp;a.el.rotation.x=-.8+k*Math.sin(t*speed*1.3+p.phase+i)*amp});
+    ud.head.rotation.x=k*(p.work?Math.sin(t*4+p.phase)*.12:Math.sin(t*1.1+p.phase)*.05);ud.head.rotation.y=k*Math.sin(t*.6+p.phase)*.25;
+    const dm=p.desk.userData.face.material;dm.color.set(p.work?'#6ea8ff':'#223')}
+  if(walker&&k){walker.t+=.0035;const span=7,ph=(walker.t%2),x=(ph<1?ph*2-1:(2-ph)*2-1)*span,dir=ph<1?1:-1;
+    walker.g.position.set(x,0,3.3);walker.g.rotation.y=dir>0?Math.PI/2:-Math.PI/2;
+    const s=Math.sin(walker.t*160);walker.g.userData.legs[0].rotation.x=s*.6;walker.g.userData.legs[1].rotation.x=-s*.6;
+    walker.g.userData.arms[0].sh.rotation.x=-s*.5;walker.g.userData.arms[1].sh.rotation.x=s*.5;walker.g.position.y=Math.abs(s)*.04}
+  if(!reduced)cam.az+=Math.sin(t*.2)*.0004;
+  const cx=0,cy=1.1,cz=-.4;camera.position.set(cx+cam.r*Math.sin(cam.pol)*Math.sin(cam.az),cy+cam.r*Math.cos(cam.pol),cz+cam.r*Math.sin(cam.pol)*Math.cos(cam.az));camera.lookAt(cx,cy,cz);
+  renderer.render(scene,camera)}
+
+/* ---------------- data + UI ---------------- */
 function render(s){
-  document.getElementById('title').textContent=s.agency;
-  document.getElementById('updated').textContent='Live · data updated '+s.updated;
-  const last={};s.rows.forEach(r=>last[r['Agent Name']]=r);
-  const f=s.funnel,a=s.audit;
+  state=s;document.getElementById('title').textContent=s.agency;
+  document.getElementById('updated').textContent='Data updated '+s.updated;
+  const a=s.audit,f=s.funnel;
   document.getElementById('stats').innerHTML=[[s.team.length,'agents on staff'],[a.healthy+'/'+(s.team.length-1),'agents fully OK'],[f.screened,'candidate scores'],[f.shortlist,'shortlisted'],[s.held_outreach.length,'emails held'],[s.rows.length,'ledger rows']].map(x=>`<div class="stat"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
-  document.getElementById('grid').innerHTML=s.team.filter(t=>t.slug!=='hr-lead').map(t=>{const r=last[t.slug]||{};const st=r['Output Status']||'ok';
-    return `<div class="desk">${bot(COLORS[t.slug],init(t.name))}<div class="name">${esc(t.name)}</div><div class="role">${esc(t.role)}</div><div class="bubble"><span class="badge ${st}">${st}</span><br>${esc(r['Task Performed']||'waiting for first run')}</div></div>`}).join('');
-  document.getElementById('walker').innerHTML=bot(COLORS['hr-lead'],'HR');
-  document.getElementById('walker').title='HR Lead (project manager) patrolling';
+  const last={};s.rows.forEach(r=>last[r['Agent Name']]=r);
+  s.team.forEach(t=>{const r=last[t.slug];if(r&&!(live[t.slug]&&live[t.slug].working)){live[t.slug]={status:r['Output Status'],task:r['Task Performed'],working:false}}});
+  if(!renderer&&!Object.keys(people).length&&!window.__init){window.__init=1;initScene(s.team)}
+  s.team.filter(t=>t.slug!=='hr-lead').forEach(t=>{const l=live[t.slug];if(l&&!l.working)setStatus(t.slug,l.status)});
+  document.getElementById('cards').innerHTML=s.team.map(t=>{const l=live[t.slug]||{};const st=l.working?'working':(l.status||'ok');
+    return `<div class="acard${selected===t.slug?' sel':''}" data-slug="${t.slug}" style="--c:${COLORS[t.slug]}"><div class="n">${esc(t.name)} <span class="badge ${st==='working'?'ok':st}">${st}</span></div><div class="r">${esc(t.role)}</div><div class="t">${esc(l.task||'waiting for first run')}</div></div>`}).join('');
+  document.querySelectorAll('.acard').forEach(c=>c.onclick=()=>select(c.dataset.slug===selected?null:c.dataset.slug));
   document.getElementById('rows').innerHTML=s.rows.slice().reverse().slice(0,60).map(r=>`<tr><td>${esc(r.Timestamp.slice(5,19))}</td><td>${esc(r['Agent Name'])}</td><td>${esc(r['Task Performed'])}</td><td><span class="badge ${r['Output Status']}">${esc(r['Output Status'])}</span></td></tr>`).join('');
-  const sh=document.getElementById('sheet');sh.href=s.sheet_url;
+  document.getElementById('sheet').href=s.sheet_url;
   document.getElementById('iv').innerHTML=s.interviews.map(i=>`<li><b>${esc(i.candidate)}</b> for ${esc(i.role)}, ${esc(i.slot)}</li>`).join('')||'<li>none</li>';
-  document.getElementById('held').innerHTML=s.held_outreach.map(h=>`<li>${esc(h.to)}: ${esc(h.subject)}</li>`).join('')||'<li>none</li>';
+  document.getElementById('held').innerHTML=s.held_outreach.map((h,i)=>`<li>${esc(h.to)}: ${esc(h.subject)} <span class="badge ${h.status}">${esc(h.status.replace(/-/g,' '))}</span>${API&&h.status==='held-for-approval'?` <button data-i="${i}" data-d="approved">Approve</button> <button class="alt" data-i="${i}" data-d="rejected">Reject</button>`:''}</li>`).join('')||'<li>none</li>';
+  document.querySelectorAll('#held button').forEach(b=>b.onclick=()=>decide(s.held_outreach[b.dataset.i],b.dataset.d));
   document.getElementById('find').innerHTML=s.findings.map(x=>`<li><b>${esc(x.id)}</b>: ${x.flags.length} biased phrase(s)${x.salary?'':', no pay info'}</li>`).join('')||'<li>no issues</li>';
 }
-async function load(){try{const r=await fetch('ledger.json?'+Date.now(),{cache:'no-store'});render(await r.json())}catch(e){document.getElementById('updated').textContent='Could not load ledger.json'}}
-load();setInterval(load,30000);
+async function jget(u,ms=0){const c=new AbortController();const to=ms&&setTimeout(()=>c.abort(),ms);try{const r=await fetch(u,{cache:'no-store',signal:c.signal});if(!r.ok)throw 0;return await r.json()}finally{clearTimeout(to)}}
+async function refresh(){try{render(API?await jget(API+'/api/state'):await jget('ledger.json?'+Date.now()))}catch(e){document.getElementById('updated').textContent='Could not load data'}}
+async function decide(h,d){await fetch(API+'/api/approve',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({to:h.to,subject:h.subject,decision:d})});refresh()}
+
+function onEvent(ev){
+  if(ev.type==='start'){live[ev.agent]=Object.assign(live[ev.agent]||{},{working:true});setStatus(ev.agent,'working');if(people[ev.agent]){people[ev.agent].work=1;showBubble(ev.agent,'Working…',0)}
+    document.getElementById('runmsg').textContent='Running: '+ev.agent}
+  if(ev.type==='done'){live[ev.agent]={status:ev.status,task:ev.task,working:false};if(people[ev.agent]){people[ev.agent].work=0;setStatus(ev.agent,ev.status);showBubble(ev.agent,ev.task,6000)}}
+  if(ev.type==='cycle-done'){document.getElementById('runmsg').textContent='Cycle finished.';document.getElementById('runbtn').disabled=false;document.getElementById('addbtn').disabled=false;refresh()}
+  if(ev.type==='approval')refresh()}
+async function post(u,b){const r=await fetch(API+u,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b||{})});return r}
+function wireControls(){
+  document.getElementById('ctl').classList.add('on');
+  document.getElementById('runbtn').onclick=async()=>{document.getElementById('runbtn').disabled=true;document.getElementById('runmsg').textContent='Starting…';const r=await post('/api/run');if(r.status===409)document.getElementById('runmsg').textContent='A cycle is already running.';};
+  document.getElementById('addbtn').onclick=async()=>{const t=document.getElementById('resume').value;document.getElementById('addbtn').disabled=true;const r=await post('/api/candidates',{text:t});if(!r.ok){const j=await r.json().catch(()=>({}));document.getElementById('runmsg').textContent=j.error||'Could not add resume';document.getElementById('addbtn').disabled=false}};
+  es=new EventSource(API+'/api/events');es.onmessage=m=>onEvent(JSON.parse(m.data))}
+async function boot(){
+  const isLocal=['localhost','127.0.0.1'].includes(location.hostname);
+  for(const base of isLocal?[location.origin]:['http://localhost:8787']){try{await jget(base+'/api/health',1200);API=base;break}catch(e){}}
+  const mode=document.getElementById('mode'),dot=document.getElementById('bdot');
+  if(API){mode.textContent='Backend connected';wireControls();document.getElementById('foot').innerHTML='Backend mode: agents run on your computer when you press Run, and the 3D agents react live as each one works.'}
+  else{dot.classList.add('off');mode.textContent='Static mode (GitHub Action data)';document.getElementById('foot').innerHTML='This page re-reads <code>ledger.json</code> every 30 s. A scheduled GitHub Action reruns the agents every 3 hours. To run agents from this page, start the backend: <code>node server.mjs</code> then open <code>http://localhost:8787</code>.'}
+  await refresh();setInterval(refresh,30000);
+}
+boot();
 </script>
 </body>
 </html>
