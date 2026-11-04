@@ -22,3 +22,11 @@
 {"ts":"2026-11-04 17:09:34 UTC","agent":"people-analytics","task":"Computed funnel metrics: 12 scores, 2 shortlisted (17%), bottleneck flagged","status":"ok"}
 {"ts":"2026-11-04 17:09:34 UTC","agent":"fairness-checker","task":"Audited 3 postings, found 7 issue(s) for human review","status":"partial"}
 {"ts":"2026-11-04 17:09:34 UTC","agent":"hr-lead","task":"Audited all 7 agents (0 missing, 2 partial) and built the daily brief","status":"ok"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"cv-intake","task":"Parsed 6 resumes into candidate records (1 missing an email)","status":"partial"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"role-scout","task":"Built sourcing searches for 2 open roles","status":"ok"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"shortlist-interview","task":"Scored 6 candidates for 2 roles: 2 shortlisted, 2 interview slots proposed","status":"ok"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"posting-writer","task":"Drafted 2 job postings and 2 held outreach emails","status":"ok"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"onboarding-planner","task":"Generated 30/60/90-day onboarding plans for 1 new hire(s)","status":"ok"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"people-analytics","task":"Computed funnel metrics: 12 scores, 2 shortlisted (17%), bottleneck flagged","status":"ok"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"fairness-checker","task":"Audited 3 postings, found 7 issue(s) for human review","status":"partial"}
+{"ts":"2026-11-04 17:20:20 UTC","agent":"hr-lead","task":"Audited all 7 agents (0 missing, 2 partial) and built the daily brief","status":"ok"}
