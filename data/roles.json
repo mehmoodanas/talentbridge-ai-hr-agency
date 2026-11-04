@@ -1,0 +1,10 @@
+{
+  "open_roles": [
+    {"id":"R1","title":"HR Generalist","must":["onboarding","compliance","communication"],"nice":["payroll","excel"],"min_years":3,"salary":"CHF 85-100k"},
+    {"id":"R2","title":"Talent Acquisition Specialist","must":["recruiting","sourcing","communication"],"nice":["negotiation","analytics"],"min_years":4,"salary":"CHF 80-95k"}
+  ],
+  "legacy_postings": [
+    {"id":"L1","title":"Office Coordinator","text":"We want a young, energetic rockstar. He must be a native English speaker and available 24/7."}
+  ],
+  "new_hires": [{"name":"Sofia Alvarez","role":"HR Generalist","start":"2026-12-01"}]
+}

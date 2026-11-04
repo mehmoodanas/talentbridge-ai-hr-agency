@@ -1,0 +1,287 @@
+{
+  "agency": "TalentBridge AI",
+  "updated": "2026-11-04 17:09:34 UTC",
+  "sheet_url": "https://docs.google.com/spreadsheets/d/1SbEy38lvdZkD2RDEi656vqoomdSC5QmZ5EPiqscwRqc/edit",
+  "team": [
+    {
+      "slug": "cv-intake",
+      "name": "CV Intake",
+      "role": "Resume parser"
+    },
+    {
+      "slug": "role-scout",
+      "name": "Role Scout",
+      "role": "Candidate sourcer"
+    },
+    {
+      "slug": "shortlist-interview",
+      "name": "Shortlist & Interview",
+      "role": "Screening and interviews"
+    },
+    {
+      "slug": "posting-writer",
+      "name": "Posting Writer",
+      "role": "Job posts and outreach"
+    },
+    {
+      "slug": "onboarding-planner",
+      "name": "Onboarding Planner",
+      "role": "New-hire plans"
+    },
+    {
+      "slug": "people-analytics",
+      "name": "People Analytics",
+      "role": "Hiring metrics"
+    },
+    {
+      "slug": "fairness-checker",
+      "name": "Fairness Checker",
+      "role": "Bias and compliance review"
+    },
+    {
+      "slug": "hr-lead",
+      "name": "HR Lead",
+      "role": "Project manager"
+    }
+  ],
+  "funnel": {
+    "screened": 12,
+    "shortlist": 2,
+    "pool": 4,
+    "out": 6,
+    "shortlist_rate": 17,
+    "bottleneck": "Few candidates reach the shortlist: widen sourcing"
+  },
+  "interviews": [
+    {
+      "role": "R1",
+      "candidate": "Lena Hoffmann",
+      "slot": "Tue 10:00",
+      "scorecard": [
+        "Role skills",
+        "Communication",
+        "Values fit"
+      ]
+    },
+    {
+      "role": "R2",
+      "candidate": "Nadia Rahman",
+      "slot": "Tue 10:00",
+      "scorecard": [
+        "Role skills",
+        "Communication",
+        "Values fit"
+      ]
+    }
+  ],
+  "held_outreach": [
+    {
+      "to": "lena.hoffmann@example.com",
+      "status": "held-for-approval",
+      "subject": "HR Generalist at a TalentBridge client",
+      "body": "Hi Lena, your background in excel and payroll stood out for our HR Generalist opening. Open to a short call?"
+    },
+    {
+      "to": "nadia.rahman@example.com",
+      "status": "held-for-approval",
+      "subject": "Talent Acquisition Specialist at a TalentBridge client",
+      "body": "Hi Nadia, your background in recruiting and communication stood out for our Talent Acquisition Specialist opening. Open to a short call?"
+    }
+  ],
+  "findings": [
+    {
+      "id": "L1",
+      "flags": [
+        "\\byoung\\b",
+        "\\brockstar\\b",
+        "\\bnative\\b.*speaker",
+        "\\bhe must\\b",
+        "\\b24\\/7\\b",
+        "\\benergetic\\b"
+      ],
+      "salary": false
+    }
+  ],
+  "onboarding": [
+    {
+      "name": "Sofia Alvarez",
+      "role": "HR Generalist",
+      "start": "2026-12-01",
+      "days30": [
+        "Accounts, equipment, policy sign-off",
+        "Meet the team",
+        "Shadow current HR Generalist work"
+      ],
+      "days60": [
+        "Own one process end to end",
+        "First feedback check-in"
+      ],
+      "days90": [
+        "Own goals for the year",
+        "90-day review with manager"
+      ]
+    }
+  ],
+  "audit": {
+    "missing": [],
+    "partial": [
+      {
+        "slug": "cv-intake",
+        "name": "CV Intake",
+        "role": "Resume parser"
+      },
+      {
+        "slug": "fairness-checker",
+        "name": "Fairness Checker",
+        "role": "Bias and compliance review"
+      }
+    ],
+    "healthy": 5
+  },
+  "rows": [
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "cv-intake",
+      "Task Performed": "Parsed 6 resumes into candidate records (1 missing an email)",
+      "Output Status": "partial"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "role-scout",
+      "Task Performed": "Built sourcing searches for 2 open roles",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "shortlist-interview",
+      "Task Performed": "Scored 6 candidates for 2 roles: 2 shortlisted, 2 interview slots proposed",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "posting-writer",
+      "Task Performed": "Drafted 2 job postings and 2 held outreach emails",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "onboarding-planner",
+      "Task Performed": "Generated 30/60/90-day onboarding plans for 1 new hire(s)",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "people-analytics",
+      "Task Performed": "Computed funnel metrics: 12 scores, 2 shortlisted (17%), bottleneck flagged",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "fairness-checker",
+      "Task Performed": "Audited 3 postings, found 7 issue(s) for human review",
+      "Output Status": "partial"
+    },
+    {
+      "Timestamp": "2026-11-04 17:08:34 UTC",
+      "Agent Name": "hr-lead",
+      "Task Performed": "Audited all 7 agents (0 missing, 2 partial) and built the daily brief",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "cv-intake",
+      "Task Performed": "Parsed 6 resumes into candidate records (1 missing an email)",
+      "Output Status": "partial"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "role-scout",
+      "Task Performed": "Built sourcing searches for 2 open roles",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "shortlist-interview",
+      "Task Performed": "Scored 6 candidates for 2 roles: 2 shortlisted, 2 interview slots proposed",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "posting-writer",
+      "Task Performed": "Drafted 2 job postings and 2 held outreach emails",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "onboarding-planner",
+      "Task Performed": "Generated 30/60/90-day onboarding plans for 1 new hire(s)",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "people-analytics",
+      "Task Performed": "Computed funnel metrics: 12 scores, 2 shortlisted (17%), bottleneck flagged",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "fairness-checker",
+      "Task Performed": "Audited 3 postings, found 7 issue(s) for human review",
+      "Output Status": "partial"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:15 UTC",
+      "Agent Name": "hr-lead",
+      "Task Performed": "Audited all 7 agents (0 missing, 2 partial) and built the daily brief",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "cv-intake",
+      "Task Performed": "Parsed 6 resumes into candidate records (1 missing an email)",
+      "Output Status": "partial"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "role-scout",
+      "Task Performed": "Built sourcing searches for 2 open roles",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "shortlist-interview",
+      "Task Performed": "Scored 6 candidates for 2 roles: 2 shortlisted, 2 interview slots proposed",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "posting-writer",
+      "Task Performed": "Drafted 2 job postings and 2 held outreach emails",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "onboarding-planner",
+      "Task Performed": "Generated 30/60/90-day onboarding plans for 1 new hire(s)",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "people-analytics",
+      "Task Performed": "Computed funnel metrics: 12 scores, 2 shortlisted (17%), bottleneck flagged",
+      "Output Status": "ok"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "fairness-checker",
+      "Task Performed": "Audited 3 postings, found 7 issue(s) for human review",
+      "Output Status": "partial"
+    },
+    {
+      "Timestamp": "2026-11-04 17:09:34 UTC",
+      "Agent Name": "hr-lead",
+      "Task Performed": "Audited all 7 agents (0 missing, 2 partial) and built the daily brief",
+      "Output Status": "ok"
+    }
+  ]
+}
