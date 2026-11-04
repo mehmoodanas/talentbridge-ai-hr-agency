@@ -1,0 +1,15 @@
+TalentBridge AI - daily HR agency brief
+
+Agents healthy: 5/7. Needs human review: CV Intake, Fairness Checker.
+
+- cv-intake: Parsed 6 resumes into candidate records (1 missing an email) [partial]
+- role-scout: Built sourcing searches for 2 open roles [ok]
+- shortlist-interview: Scored 6 candidates for 2 roles: 2 shortlisted, 2 interview slots proposed [ok]
+- posting-writer: Drafted 2 job postings and 2 held outreach emails [ok]
+- onboarding-planner: Generated 30/60/90-day onboarding plans for 1 new hire(s) [ok]
+- people-analytics: Computed funnel metrics: 12 scores, 2 shortlisted (17%), bottleneck flagged [ok]
+- fairness-checker: Audited 3 postings, found 7 issue(s) for human review [partial]
+- hr-lead: Audited all 7 agents (0 missing, 2 partial) and built the daily brief [ok]
+
+Ledger: https://docs.google.com/spreadsheets/d/1SbEy38lvdZkD2RDEi656vqoomdSC5QmZ5EPiqscwRqc/edit
+All outreach emails are held for human approval; nothing was sent to candidates.

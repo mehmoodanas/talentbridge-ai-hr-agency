@@ -1,0 +1,11 @@
+{
+  "agency": "TalentBridge AI",
+  "type": "HR agency for small businesses (recruiting, onboarding, people analytics)",
+  "project_manager": "hr-lead",
+  "note": "Custom agents written for this course project. They are not kits from markfulton/ai-employees, which has no HR kit. Data is synthetic sample data.",
+  "ledger": {
+    "columns": ["Timestamp", "Agent Name", "Task Performed", "Output Status"],
+    "sheet_title": "TalentBridge AI - Agency Ledger",
+    "sheet_url": "https://docs.google.com/spreadsheets/d/1SbEy38lvdZkD2RDEi656vqoomdSC5QmZ5EPiqscwRqc/edit"
+  }
+}
